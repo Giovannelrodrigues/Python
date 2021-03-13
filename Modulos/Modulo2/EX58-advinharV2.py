@@ -80,5 +80,3 @@ if dif == 4:
     print('Você acertou, o número era {}, você usou {} tentativa/s'.format(im,tent))
 else:
     print('Valor inválido, tente novamente!!!')
-
-
