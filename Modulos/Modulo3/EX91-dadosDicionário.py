@@ -10,8 +10,9 @@ for contador in range(1,5):
     sleep(1)
 
 rank = sorted(Numeros.items(), key=itemgetter(1), reverse=True)
-print('='* 30)
-print("O ranking dos Jogadores")
+print('='* 29)
+print("   O ranking dos Jogadores")
+print('='* 29)
 for ind, valor in enumerate(rank):
     print(f'{ind + 1}ª lugar = {valor[0]} tirou {valor[1]}')
     sleep(1)
