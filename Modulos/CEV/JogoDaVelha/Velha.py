@@ -9,7 +9,7 @@ maxJogadas = 9
 quemJoga = 0 #0cpu 1- player
 markJogador = ''
 markComputador = 'X'
-vitoriasComputador = vitoriasJogador = 0
+vitoriasComputador = vitoriasJogador = velha = 0
 continuar = 'S'
 
 def telaDoJogo():
@@ -25,7 +25,7 @@ def telaDoJogo():
 def escolha():
     global markJogador
     global markComputador
-    markJogador = str(input('Digite a Tecla que deseja Marcar')).strip().upper()[0]
+    markJogador = str(input('Digite a Tecla que deseja Marcar: ')).strip().upper()[0]
     if markJogador == 'X':
         markComputador = 'O'
 
@@ -72,17 +72,93 @@ def jogador():
             quemJoga = 0
 
 def analise():
-        
+        global matriz
+        global vitoriasJogador
+        global vitoriasComputador
+        global markJogador
+        global markComputador
+        global velha
+        global jogadas
+        if matriz[0][0] == markJogador and matriz[0][1] == markJogador and matriz[0][2] == markJogador:
+            vitoriasJogador += 1
+            return 1
+        elif matriz[1][0] == markJogador and matriz[1][1] == markJogador and matriz[1][2] == markJogador:
+            vitoriasJogador += 1
+            return 1
+        elif matriz[2][0] == markJogador and matriz[2][1] == markJogador and matriz[2][2] == markJogador:
+            vitoriasJogador += 1
+            return 1
+        elif matriz[0][0] == markJogador and matriz[1][0] == markJogador and matriz[2][0] == markJogador:
+            vitoriasJogador += 1
+            return 1
+        elif matriz[0][1] == markJogador and matriz[1][1] == markJogador and matriz[2][1] == markJogador:
+            vitoriasJogador += 1
+            return 1
+        elif matriz[0][2] == markJogador and matriz[1][2] == markJogador and matriz[2][2] == markJogador:
+            vitoriasJogador += 1
+            return 1
+        elif matriz[0][0] == markJogador and matriz[1][1] == markJogador and matriz[2][2] == markJogador:
+            vitoriasJogador += 1
+            return 1
+        elif matriz[0][2] == markJogador and matriz[1][1] == markJogador and matriz[2][0] == markJogador:
+            vitoriasJogador += 1
+            return 1
+        elif matriz[0][0] == markComputador and matriz[0][1] == markComputador and matriz[0][2] == markComputador:
+            vitoriasComputador += 1
+            return 2
+        elif matriz[1][0] == markComputador and matriz[1][1] == markComputador and matriz[1][2] == markComputador:
+            vitoriasComputador += 1
+            return 2
+        elif matriz[2][0] == markComputador and matriz[2][1] == markComputador and matriz[2][2] == markComputador:
+            vitoriasComputador += 1
+            return 2
+        elif matriz[0][0] == markComputador and matriz[1][0] == markComputador and matriz[2][0] == markComputador:
+            vitoriasComputador += 1
+            return 2
+        elif matriz[0][1] == markComputador and matriz[1][1] == markComputador and matriz[2][1] == markComputador:
+            vitoriasComputador += 1
+            return 2
+        elif matriz[0][2] == markComputador and matriz[1][2] == markComputador and matriz[2][2] == markComputador:
+            vitoriasComputador += 1
+            return 2
+        elif matriz[0][0] == markComputador and matriz[1][1] == markComputador and matriz[2][2] == markComputador:
+            vitoriasComputador += 1
+            return 2
+        elif matriz[0][2] == markComputador and matriz[1][1] == markComputador and matriz[2][0] == markComputador:
+            vitoriasComputador += 1
+            return 2
+        elif jogadas == 9:
+            velha +=1
+            return 3
 
 while continuar == 'S':
+    jogadas = 0
+    matriz = [[' ',' ',' '],[' ',' ',' '],[' ',' ',' ']]
     escolha()
     sorteioComeçar()
     while jogadas <= maxJogadas:
         telaDoJogo()
         jogador()
+        resp = analise()
+        if resp == 1:
+            break
         computador()
+        resp = analise()
+        if resp == 2:
+            break
         if jogadas == 9:
             break
     telaDoJogo()
+    if resp == 1:
+        print('Você ganhou!')
+    if resp == 2:
+        print('Computador Ganhou!')
+    if resp == 3:
+        print('Deu Velha!')
     
-    continuar = str(input('Deseja continuar? [S/N]')).strip().upper()[0]
+    continuar = str(input('Deseja jogar novamente? [S/N]')).strip().upper()[0]
+print(f'==========================')
+print(f'Você ganhou {vitoriasJogador} vezes')
+print(f'Computador ganhou {vitoriasComputador} vezes')
+print(F'Deu velha {velha} vezes')
+print(f'==========================')

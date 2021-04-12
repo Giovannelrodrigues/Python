@@ -1,4 +1,4 @@
-carros = ['HRV', 'Porshe', 'Lambo','Sonata','Range Rover', 'Onix', 'Creta',  ]
+carros = ['HRV', 'Porshe', 'Lambo','Sonata','Range Rover', 'Onix', 'Creta', 'gol','corsa'  ]
 
 
 itCarros =iter(carros)
