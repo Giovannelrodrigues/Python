@@ -57,7 +57,7 @@ def Inserir(conexao):
 def deletar(conexao):
     num = int(input('Digite o Id que deseja deletar: [0]Listar'))
     if num == 0:
-            consulta(vcon)
+            consulta(conexao)
     while True:
         sql = f'DELETE FROM TB_CONTATOS WHERE ID_CONTATO="{num}"'
         try:
@@ -133,7 +133,7 @@ def atualizar(conexao):
 
 
         if var ==5:
-            consulta(vcon)
+            consulta(conexao)
 
         if sql != '':
             try:
@@ -165,26 +165,3 @@ def consultaNome(conexao):
         print(f'ID:{r[0]} Nome:{r[1]} Email:{r[2]} Número:{r[3]}')
     print('======================================================')
     enter = input('Digite enter para continuar')
-
-#PROGRAMA PRINCIPAL
-opc = 0
-while opc != 6:
-    vcon = conexao()
-    opc = mostrar_tela()
-    if opc == 1:
-        Inserir(vcon)
-    
-    if opc == 2:
-        deletar(vcon)
- 
-    if opc == 3:
-        atualizar(vcon)
-    
-    if opc ==4:
-        consulta(vcon)
-    
-    if opc ==5:
-        consultaNome(vcon)
-    
-    
-print('FIM DO PROGRAMA')

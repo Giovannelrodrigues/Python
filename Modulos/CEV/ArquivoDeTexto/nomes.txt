@@ -1,0 +1,19 @@
+Nome......:giovanne
+Email.....:gio@gmail.com
+Telefone..:119630338
+OBS.......:imprimir teste
+
+
+
+Nome......:flavio
+Email.....:fala@gmail.com
+Telefone..:11999999999
+OBS.......:imprimir
+
+
+Nome......:renan
+Email.....:renan@gmail.com
+Telefone..:11996300338
+OBS.......:imprimir
+
+

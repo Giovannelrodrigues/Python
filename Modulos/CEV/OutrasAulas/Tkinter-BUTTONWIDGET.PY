@@ -1,0 +1,43 @@
+from tkinter import *
+import os
+
+c='C:\\temp\\PY-VSCODE-2020\\Python\\Modulos\\CEV\\ArquivoDeTexto'
+nomeArquivo=f"{c}\\nomes.txt"
+
+def gravarDados():
+    arquivo = open(nomeArquivo,'a')
+    arquivo.write("Nome......:%s" % vnome.get())
+    arquivo.write("\nEmail.....:%s" % vemail.get())
+    arquivo.write("\nTelefone..:%s" % vtelefone.get())
+    arquivo.write("\nOBS.......:%s" % vobs.get("1.0", END))
+    arquivo.write('\n\n')
+
+programa =Tk()
+programa.title('Meu Programa')
+programa.geometry('500x300')
+programa.configure(background="gray69")
+
+#anchor N=NORTE, S=SUL, E=LESTE, W=OESTE, 
+#NE=NORDESTE, SE=SUDESTE, SO=SUDOESTE, NO=NOROESTE
+#entry
+Label(programa,text="Nome",background="snow",foreground="Blue", anchor=W).place(x=10,y=10,width=100,height=20)
+vnome = Entry(programa)
+vnome.place(x=150,y=10,width=250,height=20)
+
+Label(programa,text="Email",background="snow",foreground="Blue", anchor=W).place(x=10,y=40,width=100,height=20)
+vemail = Entry(programa)
+vemail.place(x=150,y=40,width=250,height=20)
+
+Label(programa,text="Telefone",background="snow",foreground="blue", anchor=W).place(x=10,y=70,width=100,height=20)
+vtelefone = Entry(programa)
+vtelefone.place(x=150,y=70,width=100,height=20)
+
+#text usase para texto com mais de uma linha
+Label(programa,text="OBS:",background="snow",foreground="blue", anchor=W).place(x=10,y=110,width=100,height=20)
+vobs = Text(programa)
+vobs.place(x=10,y=140,width=200,height=50)
+
+Button(programa,text='Salvar',command=gravarDados).place(x=10,y=200,width=100,height=20)
+
+
+programa.mainloop()
