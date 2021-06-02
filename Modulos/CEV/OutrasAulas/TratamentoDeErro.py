@@ -16,6 +16,6 @@ finally:
 num = 18
 if num < 1:
     raise Exception('Valor Não Permitido')
-num = 'A'
+    
 if not type(num) is int():
     raise Exception('Somente NÚMEROS')
